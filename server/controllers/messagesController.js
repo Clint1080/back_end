@@ -1,3 +1,4 @@
+const movies = require('../db.json')
 
 module.exports = {
     
@@ -31,5 +32,17 @@ module.exports = {
         let randomFortune = fortunes[randomIndex];
 
         res.status(200).send(randomFortune);
+    },
+
+    getAllMovies: (req, res) => res.status(200).send(movies),
+    createMovie: (req, res) => {
+        let { movie_title, imageURL} = req.body
+        let newMovie = {
+            id: movies[movies.length - 1].id + 1,
+            movie_title,
+            imageURL
+        }
+        movies.push(newMovie)
+        res.status(200).send(movies)
     }
 }

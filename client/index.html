@@ -5,8 +5,29 @@
     <title>Back End Assessment</title>
   </head>
   <body class="container">
-    <button id="complimentButton">Get a compliment</button>
-    <button id="fortuneButton">Get a fortune</button>
+    <section class="section section1">
+      <button id="complimentButton">Get a compliment</button>
+      <button id="fortuneButton">Get a fortune</button>
+    </section>
+
+    <section class="section section2">
+      <h2>My favorite movies!!!</h2>
+      <div id="movies_container">
+      </div>
+
+      <h2>Add a new movie to the list</h2>
+      <form>
+        <input
+          type="text"
+          id="movie_title"
+          placeholder="The title of the movie" />
+        <input 
+        type="text" 
+        id="img" 
+        placeholder="URL of the movie cover" />
+        <button>Add Movie</button>
+      </form>
+    </section>
 
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>

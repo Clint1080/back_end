@@ -9,13 +9,12 @@ app.use(cors());
 app.use(express.json()); // When we want to be able to accept JSON.
 
 
-const {
-  getCompliment,
-  getFortune
-} = require('./controllers/messagesController')
+const ctrl = require('./controllers/messagesController')
 
-app.get('/api/compliment', getCompliment)
-app.get("/api/fortune", getFortune);
+app.get('/api/compliment', ctrl.getCompliment)
+app.get('/api/fortune', ctrl.getFortune);
+app.get('/api/movies', ctrl.getAllMovies);
+app.post('/api/movies', ctrl.createMovie)
 
 
 app.listen(4000, () => console.log("Server running on 4000"));
