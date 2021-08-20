@@ -2,6 +2,7 @@ const moviesContainer = document.querySelector('#movies_container')
 
 const form = document.querySelector('form')
 
+
 const baseURL = `http://localhost:4000/api`
 
 const errCallback = err => console.log(err)
@@ -9,6 +10,8 @@ const moviesCallback = ({ data:movies }) => displayMovies(movies)
 
 const getAllMovies = () => axios.get(`${baseURL}/movies`).then(moviesCallback).catch(errCallback)
 const createMovie = (body) => axios.post(`${baseURL}/movies`, body).then(moviesCallback).catch(errCallback);
+const deleteMovie = id =>
+  axios.delete(`${baseURL}/movies/${id}`).then(moviesCallback).catch(errCallback);
 
 
 document.getElementById("complimentButton").onclick = function () {
@@ -38,8 +41,8 @@ function submitHandler(e) {
 
   createMovie(bodyObj);
 
-  movie_title.value = "";
-  imageURL.value = "";
+  movie_title.value = '';
+  imageURL.value = '';
 }
 
 function createMovieCard(movie) {
@@ -47,9 +50,10 @@ function createMovieCard(movie) {
   movieCard.classList.add("movie-card");
 
   movieCard.innerHTML = `<img alt='movie cover image' src=${movie.imageURL} class="movie-cover-image"/>
-    <p class="movie_title">${movie.title}</p>
-    `;
-
+  <p class="movie_title">${movie.title}</p>
+  <button id="deleteMovie" onclick="delete_movie(${movie.id})">delete</button>
+  `;
+    
   moviesContainer.appendChild(movieCard);
 }
 

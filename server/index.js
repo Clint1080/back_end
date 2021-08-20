@@ -15,6 +15,7 @@ app.get('/api/compliment', ctrl.getCompliment)
 app.get('/api/fortune', ctrl.getFortune);
 app.get('/api/movies', ctrl.getAllMovies);
 app.post('/api/movies', ctrl.createMovie)
+app.delete('api/movies/:id', ctrl.deleteMovie)
 
 
 app.listen(4000, () => console.log("Server running on 4000"));
