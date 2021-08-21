@@ -43,7 +43,7 @@ module.exports = {
     res.status(200).send(movies);
   },
   deleteMovie: (req, res) => {
-    let index = movies.findIndex((elem) => +elem.id === +req.params.id);
+    let index = movies.findIndex(elem => elem.id === +req.params.id);
     movies.splice(index, 1);
     res.status(200).send(movies);
   }
