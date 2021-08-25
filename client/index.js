@@ -2,7 +2,7 @@ const moviesContainer = document.querySelector('#movies_container')
 const form = document.querySelector('form')
 
 
-const baseURL = `http://localhost:4000/api`
+const baseURL = `https://xenodochial-hamilton-458c86.netlify.app//api`;
 
 const moviesCallback = ({ data: movies }) => displayMovies(movies)
 const errCallback = err => console.log(err)
