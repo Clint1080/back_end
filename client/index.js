@@ -3,6 +3,7 @@ const form = document.querySelector('form')
 
 
 const baseURL = `https://xenodochial-hamilton-458c86.netlify.app/api`;
+// const baseURL = `http://localhost:4000/api`;
 
 const moviesCallback = ({ data: movies }) => displayMovies(movies)
 const errCallback = err => console.log(err)
@@ -47,7 +48,7 @@ function createMovieCard(movie) {
   const movieCard = document.createElement("div");
   movieCard.classList.add("movie-card");
 
-  movieCard.innerHTML = `<img alt='movie cover image' src=${movie.imageURL} class="movie-cover-image"/>
+  movieCard.innerHTML = `<img alt='movie cover image' src="${movie.imageURL}" class="movie-cover-image"/>
   <p class="movie_title">${movie.movie_title}</p>
   <button onclick="deleteMovie(${movie.id})">delete</button>
   `;
